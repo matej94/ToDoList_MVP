@@ -1,6 +1,6 @@
-package com.example.todolist.ui.presenter;
+package com.example.todolist.presenter;
 
-import com.example.todolist.ui.contracts.AddNewTaskContract;
+import com.example.todolist.contracts.AddNewTaskContract;
 
 public class AddNewTaskPresenter implements AddNewTaskContract.presenter {
     private AddNewTaskContract.view view;

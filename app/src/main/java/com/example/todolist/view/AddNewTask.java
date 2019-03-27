@@ -1,4 +1,4 @@
-package com.example.todolist.ui.view;
+package com.example.todolist.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.todolist.R;
-import com.example.todolist.ui.presenter.AddNewTaskPresenter;
-import com.example.todolist.ui.contracts.AddNewTaskContract;
+import com.example.todolist.presenter.AddNewTaskPresenter;
+import com.example.todolist.contracts.AddNewTaskContract;
 
 public class AddNewTask extends AppCompatActivity implements AddNewTaskContract.view {
     EditText TitleEt, DescriptionEt;

@@ -1,4 +1,4 @@
-package com.example.todolist.ui.contracts;
+package com.example.todolist.contracts;
 
 public interface AddNewTaskContract {
     interface view{

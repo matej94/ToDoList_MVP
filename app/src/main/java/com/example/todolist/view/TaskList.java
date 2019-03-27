@@ -1,4 +1,4 @@
-package com.example.todolist.ui.view;
+package com.example.todolist.view;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,9 +8,9 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.todolist.R;
-import com.example.todolist.ui.presenter.TaskListPresenter;
-import com.example.todolist.ui.view.AddNewTask;
-import com.example.todolist.ui.contracts.TaskListContract;
+import com.example.todolist.presenter.TaskListPresenter;
+import com.example.todolist.view.AddNewTask;
+import com.example.todolist.contracts.TaskListContract;
 
 public class TaskList extends AppCompatActivity implements TaskListContract.view {
     Button AddNewTaskBtn;
