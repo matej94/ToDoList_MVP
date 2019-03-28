@@ -22,19 +22,18 @@ public class TaskList extends AppCompatActivity implements TaskListContract.view
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_list);
         presenter = new TaskListPresenter(this);
-        AddNewTaskBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.loadAddNewTask();
-            }
-        });
     }
 
     @Override
     public void initView() {
         TaskListLv = findViewById(R.id.taskListLv);
         AddNewTaskBtn = findViewById(R.id.addNewTaskBtn);
-
+        AddNewTaskBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.loadAddNewTask();
+            }
+        });
     }
 
     @Override
