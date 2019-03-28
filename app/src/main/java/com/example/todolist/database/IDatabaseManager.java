@@ -5,7 +5,7 @@ import com.example.todolist.database.model.Task;
 import java.util.List;
 
 public interface IDatabaseManager {
-    List<Task> getData();
+    List<Task> getTasks();
     void addTask(String title, String description);
 
 }

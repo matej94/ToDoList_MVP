@@ -5,6 +5,9 @@ public interface AddNewTaskContract {
         void initView();
     }
 
-    interface presenter{}
+    interface presenter{
+        void addTaskClicked(String title, String description);
+
+    }
 
 }

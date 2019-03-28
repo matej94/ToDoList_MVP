@@ -8,20 +8,33 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.todolist.R;
+import com.example.todolist.database.DatabaseManager;
+import com.example.todolist.database.model.Task;
 import com.example.todolist.presenter.TaskListPresenter;
-import com.example.todolist.view.AddNewTask;
 import com.example.todolist.contracts.TaskListContract;
+import com.example.todolist.view.adapter.TaskListAdapter;
+
+import java.util.List;
 
 public class TaskList extends AppCompatActivity implements TaskListContract.view {
     Button AddNewTaskBtn;
     ListView TaskListLv;
     private TaskListContract.presenter presenter;
+    TaskListAdapter taskListAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_list);
-        presenter = new TaskListPresenter(this);
+        presenter = new TaskListPresenter(this, DatabaseManager.getDatabaseInstance());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        presenter.setView();
     }
 
     @Override
@@ -41,4 +54,9 @@ public class TaskList extends AppCompatActivity implements TaskListContract.view
         Intent intent = new Intent(this, AddNewTask.class);
         startActivity(intent);
     }
+
+    @Override
+    public void showTasks(List<Task> taskList) {
+        taskListAdapter= new TaskListAdapter(this,taskList);
+        TaskListLv .setAdapter(taskListAdapter);    }
 }
