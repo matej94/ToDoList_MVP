@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -40,6 +41,14 @@ public class TaskList extends AppCompatActivity implements TaskListContract.view
     @Override
     public void initView() {
         TaskListLv = findViewById(R.id.taskListLv);
+        TaskListLv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Task task = (Task) parent.getAdapter().getItem(position);
+                presenter.deleteTaskClicked(task.getId());
+                return true;
+            }
+        });
         AddNewTaskBtn = findViewById(R.id.addNewTaskBtn);
         AddNewTaskBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,5 +67,6 @@ public class TaskList extends AppCompatActivity implements TaskListContract.view
     @Override
     public void showTasks(List<Task> taskList) {
         taskListAdapter= new TaskListAdapter(this,taskList);
-        TaskListLv .setAdapter(taskListAdapter);    }
+        TaskListLv.setAdapter(taskListAdapter);    }
+
 }

@@ -7,5 +7,6 @@ import java.util.List;
 public interface IDatabaseManager {
     List<Task> getTasks();
     void addTask(String title, String description);
+    void deleteTask(int id);
 
 }

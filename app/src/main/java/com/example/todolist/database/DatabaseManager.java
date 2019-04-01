@@ -45,5 +45,20 @@ public class DatabaseManager implements IDatabaseManager {
             realm.copyToRealm(task);
             realm.commitTransaction();
         }
+
+    @Override
+    public void deleteTask(int id) {
+        if (id >= 0) {
+            realm.beginTransaction();
+
+            Task deletedTask = realm.where(Task.class).equalTo("id", id).findFirst();
+
+            if (deletedTask != null) {
+                deletedTask.deleteFromRealm();
+            }
+
+            realm.commitTransaction();
+        }
     }
+}
 

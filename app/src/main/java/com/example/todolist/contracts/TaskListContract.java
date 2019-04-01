@@ -14,5 +14,6 @@ public interface TaskListContract {
     interface presenter{
     void loadAddNewTask();
     void setView();
+    void deleteTaskClicked(int id);
     }
 }

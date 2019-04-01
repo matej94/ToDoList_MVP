@@ -28,6 +28,13 @@ public class TaskListPresenter implements TaskListContract.presenter {
     public void setView() {
         fetchTasks();
     }
+
+    @Override
+    public void deleteTaskClicked(int id) {
+        dbInterface.deleteTask(id);
+        fetchTasks();
+    }
+
     private void fetchTasks(){
         taskList = dbInterface.getTasks();
         view.showTasks(taskList);
